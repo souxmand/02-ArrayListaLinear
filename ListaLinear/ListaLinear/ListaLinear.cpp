@@ -1,4 +1,3 @@
-
 #include <iostream>
 using namespace std;
 
@@ -12,10 +11,11 @@ void buscarElemento();
 //--------------------------
 
 
-const int MAX = 2;;
+const int MAX = 4;
 int lista[MAX]{};
 int nElementos = 0;
-
+int elemento;
+bool encontrado = false;
 
 int main()
 {
@@ -61,6 +61,7 @@ void menu()
 	}
 }
 
+
 void inicializar()
 {
 	nElementos = 0;
@@ -104,5 +105,26 @@ void inserirElemento()
 // deve ser implementada como resposta ao exercicio
 void buscarElemento()
 {
+	if (nElementos == 0) {
+		cout << "A lista esta vazia. \n";
+		return;
+	}
 
+	cout << "Digite o elemento que deseja buscar: ";
+	cin >> elemento;
+
+	int posicao = -1;
+	for (int i = 0; i < nElementos; i++) {
+		if (lista[i] == elemento) {
+			posicao = i;
+			break;
+		}
+	}
+
+	if (posicao != -1) {
+		cout << "O elemento " << elemento << " foi encontrado na posicao " << posicao << endl;
+	}
+	else {
+		cout << "O elemento " << elemento << " nao foi encontrado na lista :( \n";
+	}
 }
